@@ -6,14 +6,15 @@ checkLoginDuplication = (req, res, next) => {
     username: req.body.username
   }).exec((err, pangolin) => {
     if (err) {
-      res.status(500).send({ message: err });
+      res.status(500).json({ message: err });
       return;
     }
 
     if (pangolin) {
-      res.status(400).send({ message: "Pangolin already exists" });
+      res.status(400).json({ message: "Pangolin already exists" });
       return;
     }
+    return;
   });
 };
 

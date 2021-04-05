@@ -6,23 +6,22 @@ const Pangolin = db_manager.pangolin;
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
 
-exports.signup = (req, res) => {
+function signup(username, password) {
   const pangolin = new Pangolin({
-    username: req.body.username,
-    password: bcrypt.hashSync(req.body.password)
+    username: username,
+    password: bcrypt.hashSync(password)
   });
+
+  console.log(pangolin);
 
   pangolin.save((err, pangolin) => {
     if (err) {
-      res.status(500).send({ message: err });
       return;
     }
-    
-    res.send({ message: "Pangolin is ready" });
   });
 };
 
-exports.signin = (req, res) => {
+let signin = (req, res) => {
   Pangolin.findOne({
     username: req.body.username
   })
@@ -59,3 +58,8 @@ exports.signin = (req, res) => {
       });
     });
 };
+
+module.exports = {
+  signin,
+  signup
+}

@@ -38,7 +38,7 @@ module.exports = function(app) {
         });
   });
 
-  app.update("/api/data/infos", [verifyToken], (req, res) => {
+  app.put("/api/data/infos", [verifyToken], (req, res) => {
       Pangolin.updateOne({username: req.body.username}, {
           age: req.body.age,
           family: req.body.family,
@@ -87,7 +87,7 @@ module.exports = function(app) {
         });
     });
 
-    app.update("/api/data/friends", [verifyToken], (req, res) => {
+    app.put("/api/data/friends", [verifyToken], (req, res) => {
         Pangolin.updateOne({username: req.body.username}, {
             $addToSet : {friends : [req.body.friendUserName]}
             }, (err, docs) => {

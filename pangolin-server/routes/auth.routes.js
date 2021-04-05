@@ -10,12 +10,13 @@ module.exports = function(app) {
     next();
   });
 
-  app.post(
-    "/api/auth/signup",
+  app.post( "/api/auth/signup",
     [
       checkLoginDuplication
     ],
-    auth.signup
+    (req, res) => {
+      res.json({body : "Ok"});
+    }
   );
 
   app.post("/api/auth/signin", auth.signin);

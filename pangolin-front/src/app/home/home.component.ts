@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+  }
+
+  async onSubmit() {
+    let response = await this.http.post("http://localhost:8080/api/auth/signup", {username : "ab", password: "ba"});
+    console.log("There");
+    response.subscribe(v => console.log(v));
   }
 
 }
