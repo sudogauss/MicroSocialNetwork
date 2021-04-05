@@ -56,6 +56,9 @@ app.get("/", (req,res) => {
     res.json({ message: "Hello world!" });
 });
 
+require('./routes/auth.routes')(app);
+require('./routes/data.routes')(app);
+
 const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, () => {
