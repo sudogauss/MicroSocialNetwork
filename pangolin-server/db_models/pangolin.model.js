@@ -7,12 +7,7 @@ const Pangolin = mongoose.model("Pangolin", new mongoose.Schema({
     family: String,
     race: String,
     food: String,
-    friends: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Pangolin"
-        }
-    ]
+    friends: [String]
 }));
 
 

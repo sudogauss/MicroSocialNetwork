@@ -87,4 +87,28 @@ module.exports = function(app) {
         });
     });
 
+    app.update("/api/data/friends", [verifyToken], (req, res) => {
+        Pangolin.updateOne({username: req.body.username}, {
+            $addToSet : {friends : [req.body.friendUserName]}
+            }, (err, docs) => {
+                if(err) {
+                    res.status(500).send({ message: err });
+                    return;
+                  }
+                console.log("Update ", docs);
+            });
+    });
+
+    app.delete("/api/data/friends", [verifyToken], (req, res) => {
+        Pangolin.deleteOne(
+            {username : req.body.username}
+        )
+        .then(function() {
+            res.status(200).send({message: "Pangofriend deleted"});
+        }).catch(err => {
+            res.status(500).send({ message: err });
+            return;
+        });
+    });
+
 };
