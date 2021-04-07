@@ -14,8 +14,9 @@ module.exports = function(app) {
   });
 
   app.get("/api/data/infos", [verifyToken], (req, res) => {
+      console.log(req.query.username);
       Pangolin.findOne({
-        username: req.body.username
+        username: req.query.username
       })
         .exec((err, pangolin) => {
           if (err) {
@@ -24,7 +25,7 @@ module.exports = function(app) {
           }
     
           if (!pangolin) {
-            return res.status(404).send({ message: " Pangolin not found" });
+            return res.json({ message: " Pangolin not found" });
           }
 
           res.status(200).send({

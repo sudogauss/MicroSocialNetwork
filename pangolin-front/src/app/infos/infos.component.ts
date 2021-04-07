@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PangolinService } from '../services/pangolin.service';
 
 @Component({
   selector: 'app-infos',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InfosComponent implements OnInit {
 
-  constructor() { }
+  constructor(private pangolinService : PangolinService) { }
 
   ngOnInit(): void {
+  }
+
+  async onSubmit() {
+    this.pangolinService.getInfos().subscribe(res => console.log(res));
   }
 
 }

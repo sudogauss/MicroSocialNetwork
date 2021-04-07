@@ -57,7 +57,7 @@ app.get("/", (req,res) => {
     res.json({ message: "Hello world!" });
 });
 
-//require('./routes/data.routes')(app);
+require('./routes/data.routes')(app);
 
 require('./routes/auth.routes')(app);
 

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
+import { PangolinService } from '../services/pangolin.service';
+import { TokenService } from '../services/token.service';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +19,9 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private authService : AuthService,
-    private formBuilder : FormBuilder
+    private formBuilder : FormBuilder,
+    private tokenService : TokenService,
+    private pangolinService : PangolinService
     ) 
     { 
       this.createForm();
@@ -45,6 +49,8 @@ export class LoginComponent implements OnInit {
         console.log(res);
         this.succes = true;
         this.err = false;
+        this.tokenService.saveToken(res.accessToken);
+        this.pangolinService.saveUsername(credentials.username);
         this.message = "Hi " + credentials.username;
       },
       error => {
