@@ -2,11 +2,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-//const checkLoginDuplication = require("./auth_check/check_if_signed_up");
-
-
-
-const auth = require("./auth/auth");
 
 const app = express();
 
@@ -62,41 +57,10 @@ app.get("/", (req,res) => {
     res.json({ message: "Hello world!" });
 });
 
-require('./routes/data.routes')(app);
+//require('./routes/data.routes')(app);
 
-//require('./routes/auth.routes')(app);
+require('./routes/auth.routes')(app);
 
-/*app.use(function(req, res, next) {
-    res.header(
-      "Access-Control-Allow-Headers",
-      "x-access-token, Origin, Content-Type, Accept"
-    );
-    next();
-  });*/
-
-  function checkLoginDuplication(username) {
-    Pangolin.findOne({
-      username: username
-    }).exec((err, pangolin) => {
-      if (err) {
-        res.json({ message: err });
-        return;
-      }
-  
-      if (pangolin) {
-        res.json({ message: "Pangolin already exists" });
-        return;
-      }
-    });
-  };
-
-app.post( "/api/auth/signup", (req, res) => {
-        checkLoginDuplication(req.body.username);
-        auth.signup(req.body.username, req.body.password);
-        res.json({body: "Ready"});
-    });
-
-//app.post("/api/auth/signin", auth.signin);
 
 
 const PORT = process.env.PORT || 8080;

@@ -6,19 +6,14 @@ const Pangolin = db_manager.pangolin;
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
 
-function signup(username, password) {
+async function signup(username, password) {
   const pangolin = new Pangolin({
     username: username,
     password: bcrypt.hashSync(password)
   });
 
-  console.log(pangolin);
 
-  pangolin.save((err, pangolin) => {
-    if (err) {
-      return;
-    }
-  });
+  return await pangolin.save();
 };
 
 let signin = (req, res) => {

@@ -14,8 +14,7 @@ export class HomeComponent implements OnInit {
   }
 
   async onSubmit() {
-    let response = await this.http.post("http://localhost:8080/api/auth/signup", {username : "ab", password: "ba"});
-    console.log("There");
+    let response = await this.http.post("http://localhost:8080/api/auth/signup", {username : "abcd", password: "dcba"});
     response.subscribe(v => console.log(v));
   }
 

@@ -1,21 +1,19 @@
 const db_manager = require("../db_models/db_manager");
 const Pangolin = db_manager.pangolin;
 
-checkLoginDuplication = (req, res, next) => {
+module.exports = function(username) {
   Pangolin.findOne({
-    username: req.body.username
+    username: username
   }).exec((err, pangolin) => {
     if (err) {
-      res.status(500).json({ message: err });
-      return;
+      console.log("Fuck")
+      return 500;
     }
 
     if (pangolin) {
-      res.status(400).json({ message: "Pangolin already exists" });
-      return;
+      return 400;
     }
-    return;
+    console.log("!");
+    return 200;
   });
 };
-
-module.exports = checkLoginDuplication;
