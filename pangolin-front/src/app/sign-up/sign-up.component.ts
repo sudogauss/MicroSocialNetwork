@@ -10,15 +10,18 @@ import { AuthService } from '../services/auth.service';
 export class SignUpComponent implements OnInit {
 
   succes : boolean = false;
+  err : boolean = false;
   message : String = '';
 
   signUpForm : FormGroup;
 
   constructor(
     private authService : AuthService,
-    private formBuilder: FormBuilder) { 
-    this.createForm();
-  }
+    private formBuilder: FormBuilder
+    ) 
+    { 
+      this.createForm();
+    }
 
   ngOnInit(): void {
   }
@@ -36,17 +39,17 @@ export class SignUpComponent implements OnInit {
       username : formData.username,
       password : formData.password
     };
-    console.log(pangolinData);
     this.authService.signUp(pangolinData).subscribe(
       res => {
         console.log(res);
         this.succes = true;
-        this.message = "Pangoo"
+        this.err = false;
+        this.message = "Pangolin est pret"
       },
       error => {
-        this.message = error.error.message;
+        this.message = "NOOOOOOO!!! On te veux pas parmi les pangolinios!!!"
         this.succes = false;
-        
+        this.err = true;
       }
     );
   }

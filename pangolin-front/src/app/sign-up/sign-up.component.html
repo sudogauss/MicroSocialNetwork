@@ -19,9 +19,13 @@
         </div>
     </form>
     
-    
-    <div class="alert alert-success" *ngIf="succes">
-        Your registration is successful!
+    <div>
+        <div class="alert alert-success" *ngIf="succes">
+            {{message}}
+        </div>
+        <div class="alert alert-danger" *ngIf="err">
+            {{message}}
+        </div>
     </div>
 
 </div>
