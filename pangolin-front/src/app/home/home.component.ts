@@ -13,9 +13,5 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  async onSubmit() {
-    let response = await this.http.post("http://localhost:8080/api/auth/signup", {username : "abcd", password: "dcba"});
-    response.subscribe(v => console.log(v));
-  }
 
 }

@@ -1,0 +1,23 @@
+div.back {
+    background: url("./images/pangolin.jpg");
+    background-size: cover;
+    min-height: 770px;
+    background-blend-mode:soft-light;
+    border-radius: 4%;
+}
+
+div.global-container {
+    width: 100%;
+}
+
+div.pangolin-title-container {
+    width: 100%;
+    text-align: center;
+    background-color: black;
+    padding: 6px 0px;
+}
+
+div h1.pangolin-title {
+    color: whitesmoke;
+    cursor: pointer;
+}

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { PangolinService } from '../services/pangolin.service';
 import { TokenService } from '../services/token.service';
@@ -21,7 +22,8 @@ export class LoginComponent implements OnInit {
     private authService : AuthService,
     private formBuilder : FormBuilder,
     private tokenService : TokenService,
-    private pangolinService : PangolinService
+    private pangolinService : PangolinService,
+    private router : Router
     ) 
     { 
       this.createForm();
@@ -53,6 +55,7 @@ export class LoginComponent implements OnInit {
         this.pangolinService.saveUsername(credentials.username);
         this.pangolinService.setOnline();
         this.message = "Hi " + credentials.username;
+        this.router.navigate(['home']);
       },
       error => {
         this.message = error.error.message;

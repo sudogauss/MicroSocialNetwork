@@ -1,0 +1,18 @@
+ul.horizontal-menu {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+li.nav-padding {
+    width: 100%;
+}
+
+li.nav-padding-right {
+    text-align: right;
+    padding : 0px 7px;
+}
+
+div.nav-container {
+    width: 100%;
+    padding-bottom: 10px;
+}

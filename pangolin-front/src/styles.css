@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+    background-color: slategray;
+}
+
+div.centered-container {
+    width : 80%;
+    margin : 0 auto;
+    padding-top: 20px;
+    text-align: center;
+}
+
+label.form-label {
+    color: lightskyblue;
+    z-index: 3;
+    font-size: 2.7rem;
+}
+
+div.btn-padding {
+    padding-top: 10px;
+}
+
+div.alert-padding {
+    padding-top: 15px;
+}

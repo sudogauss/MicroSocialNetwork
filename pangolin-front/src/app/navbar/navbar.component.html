@@ -1,25 +1,28 @@
-<nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand" [routerLink]="['home']">
-        <h1>Pangolin</h1>
-    </a>
+<div class="nav-container">
+
+  <nav class="navbar navbar-light bg-light">
   
     <div class="collapse navbar-collapse justify-content-end" [ngClass]="{ 'show': navBarStatus }">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
+      <ul class="navbar-nav mr-auto horizontal-menu">
+        <li class="nav-item nav-padding">
           <a class="nav-link" [routerLink]="'home'">Home</a>
         </li>
-        <li class="nav-item" *ngIf="isOnline()">
+        <li class="nav-item nav-padding" *ngIf="isOnline()">
             <a class="nav-link" [routerLink]="'infos'">Infos</a>
         </li>
-        <li class="nav-item" *ngIf="isOnline()">
+        <li class="nav-item nav-padding" *ngIf="isOnline()">
             <a class="nav-link" [routerLink]="'friends'">Friends</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item nav-padding-right" *ngIf="!isOnline()">
             <a class="nav-link" [routerLink]="'login'">LogIn</a>
         </li>
-        <li class="nav-item" *ngIf="!isOnline()">
+        <li class="nav-item nav-padding-right" *ngIf="!isOnline()">
             <a class="nav-link" [routerLink]="'signup'">SignUp</a>
         </li>
+        <li class="nav-item nav-padding-right" *ngIf="isOnline()">
+          <button type="button" class="btn btn-danger" (click)="logOut()">Logout</button>
+      </li>
       </ul>
     </div>
   </nav>
+</div>

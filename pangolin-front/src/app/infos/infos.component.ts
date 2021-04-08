@@ -82,7 +82,7 @@ export class InfosComponent implements OnInit {
       food : pangolinData.food
     }).subscribe(res => {
         console.log(res);
-        this.router.navigate['/infos'];
+        this.router.navigate(['home']);
     });
   }
 

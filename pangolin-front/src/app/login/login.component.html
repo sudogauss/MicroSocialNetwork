@@ -1,29 +1,29 @@
-<div>
+<div class="centered-container">
     <h1>Login</h1>
 
     <form [formGroup]="loginForm" (ngSubmit)="Login()" #creationForm="ngForm" novalidate>
         <div class="form-row">
-            <div class="form-group col-md-6">
-                <label>Username</label>
+            <div class="form-group centered-container">
+                <label class="form-label">Username</label>
                 <input class="form-control" type="text" formControlName="username">
             </div>
         </div>
         <div class="form-row">
-            <div class="form-group col-md-6">
-                <label>Password</label>
+            <div class="form-group centered-container">
+                <label class=form-label>Password</label>
                 <input class="form-control" type="text" formControlName="password">
             </div>
         </div>
-        <div class="form-group center-button-container">
+        <div class="form-group btn-padding">
             <button type="submit" class="btn btn-success" [disabled]="!creationForm.form.valid">Login</button>
         </div>
     </form>
     
     <div>
-        <div class="alert alert-success" *ngIf="succes">
+        <div class="alert alert-success alert-padding" *ngIf="succes">
             {{message}}!
         </div>
-        <div class="alert alert-danger" *ngIf="err">
+        <div class="alert alert-danger alert-padding" *ngIf="err">
             {{message}}!
         </div>
     </div>
