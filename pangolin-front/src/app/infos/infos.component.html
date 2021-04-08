@@ -1,4 +1,49 @@
-<p>infos works!</p>
+<div>
+    <div *ngIf="!modification">
+        <h1>Age</h1>
+        <h2>{{showAge()}}</h2>
+        <h1>Family</h1>
+        <h2>{{showFamily()}}</h2>
+        <h1>Race</h1>
+        <h2>{{showRace()}}</h2>
+        <h1>Food</h1>
+        <h2>{{showFood()}}</h2>
+    </div>
 
+    <form [formGroup]="pangolinInfosForm" (ngSubmit)="modifyInfos()" #creationForm="ngForm" novalidate *ngIf="modification">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Age</label>
+                <input class="form-control" type="text" formControlName="age">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Family</label>
+                <input class="form-control" type="text" formControlName="family">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Race</label>
+                <input class="form-control" type="text" formControlName="race">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Food</label>
+                <input class="form-control" type="text" formControlName="food">
+            </div>
+        </div>
+        <div class="form-group center-button-container">
+            <button type="submit" class="btn btn-success" [disabled]="!creationForm.form.valid">Confirm</button>
+        </div>
+        <div class="form-group center-button-container" (click)="backToInfos()">
+            <button type="button" class="btn btn-danger" (click)="modify()">Deny</button>
+        </div>
+    </form>
+    <div class="form-group center-button-container" *ngIf="!modification">
+        <button type="button" class="btn btn-warning" (click)="modify()">Modify</button>
+    </div>
+</div>
 
-<button (click)="onSubmit()">click</button>

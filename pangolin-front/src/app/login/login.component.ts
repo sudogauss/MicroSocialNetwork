@@ -51,6 +51,7 @@ export class LoginComponent implements OnInit {
         this.err = false;
         this.tokenService.saveToken(res.accessToken);
         this.pangolinService.saveUsername(credentials.username);
+        this.pangolinService.setOnline();
         this.message = "Hi " + credentials.username;
       },
       error => {

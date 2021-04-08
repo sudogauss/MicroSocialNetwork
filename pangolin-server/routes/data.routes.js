@@ -40,7 +40,8 @@ module.exports = function(app) {
   });
 
   app.put("/api/data/infos", [verifyToken], (req, res) => {
-      Pangolin.updateOne({username: req.body.username}, {
+    console.log(req);
+      Pangolin.updateOne({username: req.query.username}, {
           age: req.body.age,
           family: req.body.family,
           race: req.body.race,
@@ -52,7 +53,7 @@ module.exports = function(app) {
           }
           console.log("Update ", docs);
       });
-  
+      res.status(200).send({message: "Ok"});
     });
  
   app.get("/api/data/friends", [verifyToken], (req, res) => {
