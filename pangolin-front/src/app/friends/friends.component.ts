@@ -33,7 +33,15 @@ export class FriendsComponent implements OnInit {
       username : username
     }
     this.pangolinService.addFriend(friend).subscribe(res => console.log(res));
-    this.router.navigate(['home']);
+    this.ngOnInit();
+  }
+
+  deleteFromFriendList(username : string) : void {
+    const friend = {
+      username : username
+    }
+    this.pangolinService.deleteFriend(friend).subscribe(res => console.log(res));
+    this.ngOnInit();
   }
 
 }

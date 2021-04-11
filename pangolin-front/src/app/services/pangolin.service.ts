@@ -41,6 +41,11 @@ export class PangolinService {
     }, {headers: {token_header : this.tokenService.getToken()} , params : {username : this.username}, responseType : 'json'});
   }
 
+  deleteFriend(friend : any) : Observable<any> {
+    return this.http.delete(API_URL + 'friends', 
+    {headers: {token_header : this.tokenService.getToken()} , params : {username : this.username, friendUserName : friend.username}, responseType : 'json'});
+  }
+
   saveUsername(username : string) {
     this.username = username;
   }

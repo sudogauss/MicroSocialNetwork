@@ -104,15 +104,17 @@ module.exports = function(app) {
     });
 
     app.delete("/api/data/friends", [verifyToken], (req, res) => {
-        Pangolin.deleteOne(
-            {username : req.body.username}
-        )
-        .then(function() {
-            res.status(200).send({message: "Pangofriend deleted"});
-        }).catch(err => {
-            res.status(500).send({ message: err });
-            return;
+        Pangolin.findOneAndUpdate({username : req.query.username}, {
+          $pull : {friends : req.query.friendUserName}
+        }, (err, docs) => {
+            if(err) {
+              res.status(500).send({ message: err });
+              return;
+            }
+            console.log("Update ", docs);
+            res.status(200).send({message: "Ok"});
         });
+
     });
 
 };
