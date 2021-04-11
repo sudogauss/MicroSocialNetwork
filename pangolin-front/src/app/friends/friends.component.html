@@ -1,1 +1,26 @@
-<p>friends works!</p>
+<div class="friends-users-container">
+    <div class="users-container">
+        <ul *ngFor="let pango of pangos" class="users-list">
+            <li class="users-list-elements">
+                <div class="user-block">
+                    {{pango}}
+                    <button type="button" class="btn btn-success">Add friend</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <br/>
+    <hr/>
+    <br/>
+    <div class="friends-container">
+        <ul *ngFor="let friend of friends" class="friends-list">
+            <li class="friends-list-element">
+                <div class="user-block">
+                    {{friend}}
+                    <button type="button" class="btn btn-danger">Delete friend</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+</div>

@@ -65,11 +65,11 @@ module.exports = function(app) {
             res.status(500).send({ message: err });
             return;
           }
-        pangos = pangolins;
+        pangos = pangolins.map(pangolin => pangolin.username);
       });
 
       Pangolin.findOne({
-        username: req.body.username
+        username: req.query.username
       })
         .exec((err, pangolin) => {
           if (err) {
@@ -78,12 +78,13 @@ module.exports = function(app) {
           }
     
           if (!pangolin) {
-            return res.status(404).send({ message: " Pangolin not found" });
+            return res.send({ message: " Pangolin not found" });
           }
 
           friends = pangolin.friends;
+          let pangosNotFriends = pangos.filter(pangoName => !(friends.includes(pangoName) || pangoName === req.query.username));
           res.status(200).send({
-              pangos: pangos,
+              pangos: pangosNotFriends,
               friends: friends
           });
         });

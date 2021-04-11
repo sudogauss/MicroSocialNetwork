@@ -31,6 +31,10 @@ export class PangolinService {
     }, {headers: {token_header : this.tokenService.getToken()} , params : {username : this.username}, responseType : 'json'});
   }
 
+  getFriendsAndUsers() : Observable<any> {
+    return this.http.get(API_URL + 'friends', {headers: {token_header : this.tokenService.getToken()} , params : {username : this.username}, responseType : 'json'});
+  }
+
   saveUsername(username : string) {
     this.username = username;
   }
