@@ -35,6 +35,12 @@ export class PangolinService {
     return this.http.get(API_URL + 'friends', {headers: {token_header : this.tokenService.getToken()} , params : {username : this.username}, responseType : 'json'});
   }
 
+  addFriend(friend : any) : Observable<any> {
+    return this.http.put(API_URL + 'friends', {
+      friendUserName : friend.username
+    }, {headers: {token_header : this.tokenService.getToken()} , params : {username : this.username}, responseType : 'json'});
+  }
+
   saveUsername(username : string) {
     this.username = username;
   }

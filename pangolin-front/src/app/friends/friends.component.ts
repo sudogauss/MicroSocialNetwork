@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { PangolinService } from '../services/pangolin.service';
 
 @Component({
@@ -11,7 +12,10 @@ export class FriendsComponent implements OnInit {
   pangos : Array<any>;
   friends : Array<any>;
 
-  constructor(private pangolinService : PangolinService) { }
+  constructor(
+    private pangolinService : PangolinService,
+    private router : Router
+    ) { }
 
   ngOnInit(): void {
     this.pangolinService.getFriendsAndUsers().subscribe(res => {
@@ -22,6 +26,14 @@ export class FriendsComponent implements OnInit {
         alert("error");
       }
     });
+  }
+
+  addToFriendList(username : string) : void {
+    const friend = {
+      username : username
+    }
+    this.pangolinService.addFriend(friend).subscribe(res => console.log(res));
+    this.router.navigate(['home']);
   }
 
 }

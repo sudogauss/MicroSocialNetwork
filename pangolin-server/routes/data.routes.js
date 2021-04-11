@@ -91,7 +91,7 @@ module.exports = function(app) {
     });
 
     app.put("/api/data/friends", [verifyToken], (req, res) => {
-        Pangolin.updateOne({username: req.body.username}, {
+        Pangolin.updateOne({username: req.query.username}, {
             $addToSet : {friends : [req.body.friendUserName]}
             }, (err, docs) => {
                 if(err) {
@@ -99,6 +99,7 @@ module.exports = function(app) {
                     return;
                   }
                 console.log("Update ", docs);
+                res.status(200).send({message: "Ok"});
             });
     });
 
