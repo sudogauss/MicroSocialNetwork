@@ -1,7 +1,10 @@
 ul.horizontal-menu {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
+    width: 100%;
+    text-align: center;
 }
+
 
 li.nav-padding {
     width: 100%;
@@ -12,7 +15,48 @@ li.nav-padding-right {
     padding : 0px 7px;
 }
 
-div.nav-container {
+li.nav-padding-top:nth-child(2) {
     width: 100%;
-    padding-bottom: 10px;
+    margin-top: 420%;
+}
+
+li.nav-padding-top:nth-child(4) {
+    width: 100%;
+    margin-top: 410%;
+}
+
+li.nav-item {
+    padding-left: 3px;
+    margin-top: 10px;
+    color: white;
+    width: 100%;
+}
+
+li.nav-item:hover {
+    background-color: white;
+    color: black;
+}
+
+a.navigation-link {
+    color: inherit;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-family: Ubuntu Mono;
+}
+
+div.navigation-container {
+    width: 100%;
+    box-sizing: border-box;
+    height: 94vh;
+}
+
+div.navbar-content {
+    width: 100%;
+}
+
+nav.navigation-bar {
+    width: 100%;
+    background-color: rgb(63, 51, 51);
+    box-sizing: border-box;
+    height: 100%;
 }

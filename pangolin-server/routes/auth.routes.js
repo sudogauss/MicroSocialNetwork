@@ -26,7 +26,7 @@ module.exports = function(app) {
         if(result === null) {
           auth.signup(username, password)
           .then(result => {
-            if(result = null) {
+            if(result === null) {
               res.status(500);
               res.json({message : "Error"});      
             }
@@ -39,7 +39,6 @@ module.exports = function(app) {
           
         }
         else {
-          res.status(400);
           res.json({message : "Already exists"});
         }
       })

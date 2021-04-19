@@ -1,5 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 
+@font-face {
+    font-family: "Ubuntu Mono";
+    src: url("/fonts/UbuntuMono-Regular.ttf") format("truetype");
+   }
+
 body {
     background-color: slategray;
 }

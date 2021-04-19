@@ -1,0 +1,16 @@
+div.home-container {
+    width: 100%;
+    text-align: center;
+    padding-top: 45vh;
+}
+
+h1.home-header {
+    font-size: 2.5rem;
+    color: ghostwhite;
+}
+
+pre.home-teaser {
+    font-size: 1.4rem;
+    color: whitesmoke;
+}
+

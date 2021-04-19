@@ -2,8 +2,14 @@
   <div class = "pangolin-title-container">
     <h1 class="pangolin-title">{{title}}</h1>
   </div>
-  <app-navbar></app-navbar>
-  <div class="container md-3 back">
-    <router-outlet></router-outlet>
+  <div class="main">
+    <div *ngIf="navBarStatus" class="navigation">
+      <app-navbar></app-navbar>
+    </div>
+    <div class="back">
+      <router-outlet></router-outlet>
+    </div>
+    <div class="control-button" (click)="switchMenu()" [style.left]="buttonOffset + 'px'">
+    </div>
   </div>
 </div>

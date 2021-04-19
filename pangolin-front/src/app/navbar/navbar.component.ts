@@ -32,4 +32,9 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['home']);
   }
 
+  switchMenu() : void {
+    console.log("Works");
+    this.navBarStatus = !this.navBarStatus;
+  }
+
 }

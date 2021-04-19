@@ -1,23 +1,51 @@
 div.back {
-    background: url("./images/pangolin.jpg");
+    background: url("./images/space.jpg");
     background-size: cover;
-    min-height: 770px;
-    background-blend-mode:soft-light;
-    border-radius: 4%;
+    height: 100%;
+    background-blend-mode: soft-light;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-y: scroll;
 }
 
 div.global-container {
     width: 100%;
+    box-sizing: border-box;
+    height: 100vh;
 }
 
 div.pangolin-title-container {
     width: 100%;
     text-align: center;
     background-color: black;
-    padding: 6px 0px;
+    height: 6vh;
 }
 
 div h1.pangolin-title {
     color: whitesmoke;
+    cursor: pointer;
+}
+
+div.main {
+    width: 100%;
+    display: flex;
+    box-sizing: border-box;
+    height: 94vh;
+    overflow-y: scroll;
+}
+
+div.navigation {
+    min-width: 10%;
+    max-width: 10%;
+}
+
+
+div.control-button {
+    border-radius: 50%;
+    width: 4vh;
+    height: 4vh;
+    position: absolute;
+    background-color: green;
+    top: 53vh;
     cursor: pointer;
 }
