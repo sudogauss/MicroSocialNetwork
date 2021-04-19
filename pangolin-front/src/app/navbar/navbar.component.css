@@ -47,7 +47,7 @@ a.navigation-link {
 div.navigation-container {
     width: 100%;
     box-sizing: border-box;
-    height: 94vh;
+    height: 100%;
 }
 
 div.navbar-content {
@@ -59,4 +59,5 @@ nav.navigation-bar {
     background-color: rgb(63, 51, 51);
     box-sizing: border-box;
     height: 100%;
+    padding-top: 5vh;
 }
