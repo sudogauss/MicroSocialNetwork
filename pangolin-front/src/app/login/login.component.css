@@ -1,0 +1,13 @@
+div.login-container {
+    padding-top: 30vh;
+}
+
+h1.login-header {
+    font-size: 3rem;
+    color: whitesmoke;
+}
+
+div.form-row {
+    width: 55%;
+    margin: 0 auto;
+}

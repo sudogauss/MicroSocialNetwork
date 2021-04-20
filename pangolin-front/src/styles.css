@@ -6,26 +6,29 @@
    }
 
 body {
-    background-color: slategray;
+    background-color: rgb(63, 51, 51);;
 }
 
 div.centered-container {
     width : 80%;
     margin : 0 auto;
-    padding-top: 20px;
+    padding-top: 5vh;
     text-align: center;
 }
 
 label.form-label {
-    color: lightskyblue;
+    color: rgb(241, 168, 33);
+    text-shadow: green 3px 3px;
     z-index: 3;
     font-size: 2.7rem;
 }
 
 div.btn-padding {
-    padding-top: 10px;
+    margin-top: 4vh;
 }
 
 div.alert-padding {
     padding-top: 15px;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

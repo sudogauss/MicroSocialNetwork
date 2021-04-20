@@ -4,3 +4,17 @@ div.center-button-container {
     align-items: center;
     padding-top: 3%;
 }
+
+div.signup-container {
+    padding-top: 30vh;
+}
+
+h1.signup-header {
+    font-size: 3rem;
+    color: whitesmoke;
+}
+
+div.form-row {
+    width: 55%;
+    margin: 0 auto;
+}
