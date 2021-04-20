@@ -1,5 +1,6 @@
 <div class="friends-users-container">
     <div class="users-container">
+        <h1 class="friends-page-header"> Other Users</h1>
         <ul *ngFor="let pango of pangos" class="users-list">
             <li class="users-list-elements">
                 <div class="user-block">
@@ -13,6 +14,7 @@
     <hr/>
     <br/>
     <div class="friends-container">
+        <h1 class="friends-page-header"> Your Friends</h1>
         <ul *ngFor="let friend of friends" class="friends-list">
             <li class="friends-list-element">
                 <div class="user-block">
@@ -24,24 +26,4 @@
     </div>
     <br/>
     <hr/>
-    <div class="new-friend-container">
-        <form [formGroup]="newFriendForm" (ngSubmit)="createNewFriend()" #creationForm="ngForm" novalidate>
-            <div class="form-row">
-                <div class="form-group centered-container">
-                    <label class="form-label">Username</label>
-                    <input class="form-control" type="text" formControlName="username">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group centered-container">
-                    <label class="form-label">Password</label>
-                    <input class="form-control" type="text" formControlName="password">
-                </div>
-            </div>
-            <div class="form-group btn-padding">
-                <button type="submit" class="btn btn-warning" [disabled]="!creationForm.form.valid">Create new friend</button>
-            </div>
-        </form>
-    </div>
-
 </div>

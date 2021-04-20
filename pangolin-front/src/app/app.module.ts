@@ -15,6 +15,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatSelectModule} from '@angular/material/select';
+import { NewBestFriendComponent } from './new-best-friend/new-best-friend.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {MatSelectModule} from '@angular/material/select';
     HomeComponent,
     InfosComponent,
     FriendsComponent,
-    NavbarComponent
+    NavbarComponent,
+    NewBestFriendComponent
   ],
   imports: [
     BrowserModule,

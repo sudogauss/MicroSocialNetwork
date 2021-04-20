@@ -1,20 +1,27 @@
 div.friends-users-container {
     width: 100%;
-    background-color: white;
-    opacity: 0.87;
-    border-radius: 7%;
+    display: flex;
+    flex-flow: row-reverse;
+}
+
+h1.friends-page-header {
+    font-size: 2rem;
+    color: rgb(241, 168, 33);
+    text-shadow: green 3px 3px;
+    z-index: 3;
+    padding-top: 9vh;
 }
 
 div.users-container {
-    width: 100%;
-    max-height: 400px;
-    overflow-y: scroll;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
 }
 
 div.friends-container {
-    width: 100%;
-    max-height: 400px;
-    overflow-y: scroll;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
 }
 
 ul.users-list {
@@ -24,6 +31,8 @@ ul.users-list {
 
 li.users-list-element {
     width: 100%;
+    color: white;
+    font-size: 1.5rem;
 }
 
 ul.friends-list {
@@ -33,4 +42,11 @@ ul.friends-list {
 
 li.friends-list-element {
     width: 100%;
+    color: white;
+    font-size: 1.5rem;
+}
+
+div.user-block {
+    color: white;
+    font-size: 1.5rem;
 }

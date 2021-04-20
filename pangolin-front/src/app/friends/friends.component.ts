@@ -14,16 +14,10 @@ export class FriendsComponent implements OnInit {
   pangos : Array<any>;
   friends : Array<any>;
 
-  newFriendForm : FormGroup;
 
   constructor(
-    private pangolinService : PangolinService,
-    private router : Router,
-    private authService : AuthService,
-    private formBuilder : FormBuilder
-    ) { 
-      this.createForm();
-    }
+    private pangolinService : PangolinService
+    ) { }
 
   ngOnInit(): void {
     this.pangolinService.getFriendsAndUsers().subscribe(res => {
@@ -36,12 +30,6 @@ export class FriendsComponent implements OnInit {
     });
   }
 
-  createForm() : void {
-    this.newFriendForm = this.formBuilder.group({
-      username : ['', Validators.required],
-      password : ['', Validators.required]
-    });
-  }
 
   addToFriendList(username : string) : void {
     const friend = {
@@ -57,23 +45,6 @@ export class FriendsComponent implements OnInit {
     }
     this.pangolinService.deleteFriend(friend).subscribe(res => console.log(res));
     this.ngOnInit();
-  }
-
-  createNewFriend() : void {
-    const formData = this.newFriendForm.getRawValue();
-    const pangolinData = {
-      username : formData.username,
-      password : formData.password
-    };
-    this.authService.signUp(pangolinData).subscribe(
-      res => {
-        console.log(res);
-        this.addToFriendList(formData.username);
-      },
-      error => {
-        alert("Ouups!!!!")
-      }
-    );
   }
 
 }
