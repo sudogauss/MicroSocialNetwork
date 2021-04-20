@@ -1,0 +1,25 @@
+div.infos-container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 2vh;
+}
+
+h1.info-label {
+    color: rgb(241, 168, 33);
+    text-shadow: green 3px 3px;
+    z-index: 3;
+    font-size: 3.1rem;
+}
+
+h2.info-value {
+    color: white;
+    font-size: 2.4rem;
+}
+
+label.modify-label {
+    color: rgb(241, 168, 33);
+    text-shadow: green 3px 3px;
+    z-index: 3;
+    font-size: 2rem;
+}

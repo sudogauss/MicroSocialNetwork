@@ -8,6 +8,7 @@ ul.horizontal-menu {
 
 li.nav-padding {
     width: 100%;
+    padding-bottom: 20px;
 }
 
 li.nav-padding-right {

@@ -1,37 +1,43 @@
-<div>
+<div class="infos-container">
     <div *ngIf="!modification">
-        <h1>Age</h1>
-        <h2>{{showAge()}}</h2>
-        <h1>Family</h1>
-        <h2>{{showFamily()}}</h2>
-        <h1>Race</h1>
-        <h2>{{showRace()}}</h2>
-        <h1>Food</h1>
-        <h2>{{showFood()}}</h2>
+        <h1 class="info-label">Age</h1>
+        <h2 class="info-value">{{showAge()}}</h2>
+        <br/>
+        <hr/>
+        <h1 class="info-label">Family</h1>
+        <h2 class="info-value">{{showFamily()}}</h2>
+        <br/>
+        <hr/>
+        <h1 class="info-label">Race</h1>
+        <h2 class="info-value">{{showRace()}}</h2>
+        <br/>
+        <hr/>
+        <h1 class="info-label">Food</h1>
+        <h2 class="info-value">{{showFood()}}</h2>
     </div>
 
     <form [formGroup]="pangolinInfosForm" (ngSubmit)="modifyInfos()" #creationForm="ngForm" novalidate *ngIf="modification">
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label>Age</label>
+        <div class="form-row centered-container">
+            <div class="form-group col-md-6 centered-container">
+                <label class="modify-label">Age</label>
                 <input class="form-control" type="text" formControlName="age">
             </div>
         </div>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label>Family</label>
+        <div class="form-row centered-container">
+            <div class="form-group col-md-6 centered-container">
+                <label class="modify-label">Family</label>
                 <input class="form-control" type="text" formControlName="family">
             </div>
         </div>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label>Race</label>
+        <div class="form-row centered-container">
+            <div class="form-group col-md-6 centered-container">
+                <label class="modify-label">Race</label>
                 <input class="form-control" type="text" formControlName="race">
             </div>
         </div>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label>Food</label>
+        <div class="form-row centered-container">
+            <div class="form-group col-md-6 centered-container">
+                <label class="modify-label">Food</label>
                 <input class="form-control" type="text" formControlName="food">
             </div>
         </div>
