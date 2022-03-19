@@ -1,0 +1,23 @@
+version: "3.9"
+services:
+  mongo_db:
+    image: mongo
+    container_name: mongodb
+    restart: unless-stopped
+    ports:
+      - 27017:27017
+    environment:
+      - PUID=1000
+      - PGID=1000
+    volumes:
+      - /database_volume:/data/db
+  server:
+    build: pangolin-server
+    ports: 
+      - "8080:8080"
+    depends_on:
+      - "mongo_db"
+  frontend:
+    build: pangolin-front
+    depends_on:
+      - "mongo_db"

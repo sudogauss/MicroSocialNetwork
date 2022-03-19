@@ -1,5 +1,5 @@
 module.exports = {
-    HOST: "localhost",
+    HOST: "mongodb",
     PORT: 27017,
-    DB: "pangolin"
+    DB: "pangolin",
 };

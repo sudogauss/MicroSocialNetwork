@@ -29,6 +29,7 @@ db_manager.driver
                 create_pangolin();
             })
             .catch(err => {
+                console.error(err.toString());
                 console.error("Nooooooon!!!!");
                 process.exit();
             });
