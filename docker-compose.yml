@@ -1,23 +1,32 @@
-version: "3.9"
+version: '3'
 services:
-  mongo_db:
-    image: mongo
-    container_name: mongodb
-    restart: unless-stopped
+  mongo:
+    image: mongo:4.0
     ports:
       - 27017:27017
     environment:
-      - PUID=1000
-      - PGID=1000
-    volumes:
-      - /database_volume:/data/db
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=root
   server:
-    build: pangolin-server
+    image: node:10.16.3
+    volumes:
+      - "./pangolin-server:/var/www"
     ports: 
       - "8080:8080"
     depends_on:
-      - "mongo_db"
+      - "mongo"
+    links:
+      - mongo
+    environment:
+      - URL_MONGO=mongodb://root:root@mongo
+    command: bash -c "cd /var/www && npm install && npm start"
   frontend:
-    build: pangolin-front
-    depends_on:
-      - "mongo_db"
+    container_name: frontend
+    build: ./pangolin-front
+    volumes:
+      - './pangolin-front:/app'
+    ports:
+      - '4200:4200'
+    command: bash -c "npm install && npm start"
+    links:
+      - server

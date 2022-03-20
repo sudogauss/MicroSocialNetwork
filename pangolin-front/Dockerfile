@@ -1,5 +1,5 @@
-FROM node:latest as node
+FROM node:12
+RUN mkdir /app
 WORKDIR /app
+RUN npm install -g @angular/cli
 COPY . .
-RUN npm install 
-RUN npm run build --prod

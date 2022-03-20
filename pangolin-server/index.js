@@ -20,9 +20,10 @@ const db_config = require('./config/mongoDB.config');
 const Pangolin = db_manager.pangolin;
 
 db_manager.driver
-            .connect(`mongodb://${db_config.HOST}:${db_config.PORT}/${db_config.DB}`, {
+            .connect(process.env.URL_MONGO, {
                 useNewUrlParser: true,
-                useUnifiedTopology: true
+                useUnifiedTopology: true,
+                dbName: 'pangolin'
             })
             .then(() => {
                 console.log("Successfully connected"),
